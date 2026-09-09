@@ -1,6 +1,6 @@
 const inputValue = document.querySelector("input")
 const para = document.querySelector("p")
-const btn = document.querySelector("button")
+const btn = document.querySelector("button") 
 
 function factorial(n) {
     if (n < 0) throw new Error("Negative numbers not allowed");
@@ -20,6 +20,16 @@ function getRowCoefficients(n) {
 }
 
 btn.addEventListener("click", () => {
+    render()
+})
+
+inputValue.addEventListener('keypress', (event)=>{
+    if(event.key === "Enter"){
+        render()
+    }
+})
+
+function render(){
     if (inputValue.value === "") return
     let outputString = ""
     const maxRows = Number(inputValue.value)
@@ -29,4 +39,4 @@ btn.addEventListener("click", () => {
     }
     para.innerHTML = outputString
     inputValue.value = ""
-})
+}
